@@ -13,14 +13,8 @@ public class CameraFollower : MonoBehaviour
         if (player != null)
         {
             Vector3 desiredPosition = player.position + offset;
-
-            // Smoothly move the camera towards the desired position
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-
-            // Set the camera's position to the smoothed position
             transform.position = smoothedPosition;
-
-            // Make the camera look at the player's position
             transform.LookAt(player);
         }
     }
