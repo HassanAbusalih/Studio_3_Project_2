@@ -8,7 +8,7 @@ using UnityEngine;
 public class InteractionHandler : MonoBehaviour
 {
     Interactable currentInteractable;
-    [SerializeField] KeyCode interactionButton;
+    [SerializeField] KeyCode interactionButton = KeyCode.E;
 
     void Update()
     {

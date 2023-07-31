@@ -7,7 +7,7 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    InteractionHandler interactionHandler;
+    protected InteractionHandler interactionHandler;
 
     void Start()
     {
