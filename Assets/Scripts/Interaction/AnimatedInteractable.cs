@@ -16,16 +16,15 @@ public class AnimatedInteractable : Interactable
         {
             Debug.LogError($"{gameObject.name} has no Animator.");
         }
+        if (animatorBoolName == null) 
+        {
+            Debug.LogError("No bool name.");
+        }
     }
 
     public override void Interact()
     {
-        if (animator == null) { return; }
-        if (animatorBoolName == null) 
-        {
-            Debug.LogError("No bool name.");
-            return;
-        }
+        if (animator == null || animatorBoolName == null) { return; }
         animator.SetBool(animatorBoolName, true);
     }
 }
