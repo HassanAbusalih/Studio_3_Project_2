@@ -9,7 +9,7 @@ public abstract class Interactable : MonoBehaviour
 {
     protected InteractionHandler interactionHandler;
 
-    void Start()
+    void Awake()
     {
         interactionHandler = FindObjectOfType<InteractionHandler>();
     }

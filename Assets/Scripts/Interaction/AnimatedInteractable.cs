@@ -11,7 +11,6 @@ public class AnimatedInteractable : Interactable
 
     private void Start()
     {
-        interactionHandler = FindObjectOfType<InteractionHandler>();
         if (!TryGetComponent(out animator))
         {
             Debug.LogError($"{gameObject.name} has no Animator.");
