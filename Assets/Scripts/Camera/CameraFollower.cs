@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollower : MonoBehaviour
+public class CameraFollower : Resettable
 {
     [SerializeField] Transform playerTransform;
     [SerializeField] float followSpeed = 5f;
@@ -10,7 +10,6 @@ public class CameraFollower : MonoBehaviour
     float originalYOffset; 
     bool isTriggered = false;
     [SerializeField] LayerMask triggerLayer;
-
 
     private void Start()
     {
@@ -45,5 +44,11 @@ public class CameraFollower : MonoBehaviour
             transform.position = desiredPosition;
         }
     }
+    public override void ResetObject()
+    {
+        Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y + originalYOffset, transform.position.z);
+        transform.position = desiredPosition;
+    }
 }
+
 

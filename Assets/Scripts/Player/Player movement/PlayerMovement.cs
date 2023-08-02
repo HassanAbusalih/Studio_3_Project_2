@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Resettable
 {
     CharacterController controller;
     [SerializeField] float speed = 5.0f;
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (yVelocity < 0 && controller.isGrounded)
         {
-            yVelocity = -2f; // To ensure the character doesn't stick to the ground when moving down slopes.
+            yVelocity = -2f; 
         }
 
         yVelocity -= gravity;
@@ -39,5 +39,8 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
     }
-
+    public override void ResetObject()
+    {
+        this.gameObject.transform.position = new Vector3(Checkpoint.CurrentCheckpoint.x, Checkpoint.CurrentCheckpoint.y, Checkpoint.CurrentCheckpoint.z);
+    }
 }
