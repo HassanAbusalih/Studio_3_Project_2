@@ -9,6 +9,7 @@ public class PlayerMovement : Resettable
     [SerializeField] float gravity = 1.0f;
     [SerializeField] float jumpHeight = 15.0f;
     float yVelocity;
+    [SerializeField] KeyCode jump;
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class PlayerMovement : Resettable
 
         if (controller.isGrounded)
         {
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetKeyDown(jump))
             {
                 yVelocity = jumpHeight;
             }
