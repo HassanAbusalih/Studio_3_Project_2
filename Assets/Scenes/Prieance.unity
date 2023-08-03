@@ -1296,7 +1296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   gravity: 1
-  jumpHeight: 6
+  jumpHeight: 8
 --- !u!4 &2106424672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7976138404818722391, guid: 8fbf32aff4ed6d04f80276d853941210, type: 3}
