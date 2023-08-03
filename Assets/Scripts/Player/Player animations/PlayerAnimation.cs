@@ -23,9 +23,9 @@ public class PlayerAnimation : MonoBehaviour
         {
             catMoving.SetBool("Jump", true);
         }
-        else
+       // else
         {
-            catMoving.SetBool("Jump", false);
+          //  catMoving.SetBool("Jump", false);
         }
     }
 }
