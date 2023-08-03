@@ -7,6 +7,7 @@ public class pauseMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject pausePopUp;
+    [SerializeField] AudioSource bgSound;
 
     private void Start()
     {
@@ -18,12 +19,14 @@ public class pauseMenu : MonoBehaviour
         {
             Time.timeScale = 0f;
             pausePopUp.SetActive(true);
+            bgSound.volume = 0f;
         }
     }
     public void Resume()
     {
         Time.timeScale = 1.0f;
         pausePopUp.SetActive(false);
+        bgSound.volume = 1f;
     }
 
     public void MainMenu()
