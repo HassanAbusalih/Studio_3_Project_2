@@ -8,7 +8,6 @@ public class PlayerMovement : Resettable
     [SerializeField] float jumpForce = 10f;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Rigidbody rb;
-    [SerializeField] bool isGrounded;
     [SerializeField] KeyCode jump;
     [SerializeField] bool canJump;
 
@@ -23,9 +22,7 @@ public class PlayerMovement : Resettable
         float moveHorizontal = Input.GetAxis("Horizontal");
         Vector3 moveDirection = new Vector3(moveHorizontal, 0f, 0f).normalized;
         rb.velocity = new Vector3(moveDirection.x * moveSpeed, rb.velocity.y, 0f);
-        
-        // Jumping
-        if ( canJump && Input.GetKeyDown(jump))
+        if ( canJump == true && Input.GetKeyDown(jump))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             
@@ -34,17 +31,30 @@ public class PlayerMovement : Resettable
 
     private void OnTriggerEnter(Collider other)
     {
-        canJump = true;
+        if (groundLayer == (groundLayer | (1 << other.gameObject.layer)))
+        {
+            
+            canJump = true; 
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (groundLayer == (groundLayer | (1 << other.gameObject.layer)))
+        {
+
+            canJump = false;
+        }
     }
     private void OnTriggerStay(Collider other)
     {
-        canJump = true;
+        if (groundLayer == (groundLayer | (1 << other.gameObject.layer)))
+        {
+
+            canJump = true;
+        }
     }
-    private void OnTriggerExit(Collider other)
-    {
-        canJump = false;
-    }
-   
+
     public override void ResetObject()
     {
         this.gameObject.transform.position = new Vector3(Checkpoint.CurrentCheckpoint.x, Checkpoint.CurrentCheckpoint.y, Checkpoint.CurrentCheckpoint.z);
