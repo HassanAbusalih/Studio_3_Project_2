@@ -6,15 +6,11 @@ using UnityEngine;
 
 public class AnimatedInteractable : Interactable
 {
-    Animator animator;
+    [SerializeField] Animator animator;
     [SerializeField] string animatorBoolName;
 
     private void Start()
     {
-        if (!TryGetComponent(out animator))
-        {
-            Debug.LogError($"{gameObject.name} has no Animator.");
-        }
         if (animatorBoolName == null) 
         {
             Debug.LogError("No bool name.");
