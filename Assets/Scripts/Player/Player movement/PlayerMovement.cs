@@ -4,42 +4,47 @@ using UnityEngine;
 
 public class PlayerMovement : Resettable
 {
-    CharacterController controller;
-    [SerializeField] float speed = 5.0f;
-    [SerializeField] float gravity = 1.0f;
-    [SerializeField] float jumpHeight = 15.0f;
-    float yVelocity;
+    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float jumpForce = 10f;
+    [SerializeField] LayerMask groundLayer;
+    [SerializeField] Rigidbody rb;
+    [SerializeField] bool isGrounded;
     [SerializeField] KeyCode jump;
+    [SerializeField] bool canJump;
 
-    void Start()
+    private void Awake()
     {
-        controller = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    private void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        Vector3 direction = new Vector3(horizontal, 0, 0).normalized;
-        Vector3 velocity = direction * speed;
 
-        if (controller.isGrounded)
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        Vector3 moveDirection = new Vector3(moveHorizontal, 0f, 0f).normalized;
+        rb.velocity = new Vector3(moveDirection.x * moveSpeed, rb.velocity.y, 0f);
+        
+        // Jumping
+        if ( canJump && Input.GetKeyDown(jump))
         {
-            if (Input.GetKeyDown(jump))
-            {
-                yVelocity = jumpHeight;
-            }
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            
         }
-
-        if (yVelocity < 0 && controller.isGrounded)
-        {
-            yVelocity = -2f; 
-        }
-
-        yVelocity -= gravity;
-        velocity.y = yVelocity;
-
-        controller.Move(velocity * Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        canJump = true;
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        canJump = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        canJump = false;
+    }
+   
     public override void ResetObject()
     {
         this.gameObject.transform.position = new Vector3(Checkpoint.CurrentCheckpoint.x, Checkpoint.CurrentCheckpoint.y, Checkpoint.CurrentCheckpoint.z);
