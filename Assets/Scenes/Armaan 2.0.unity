@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08012126, g: 0.09951255, b: 0.30091166, a: 1}
+  m_IndirectSpecularColor: {r: 0.080280304, g: 0.099675655, b: 0.3010735, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13864,6 +13864,7 @@ MonoBehaviour:
   speed: 2
   gravity: 1
   jumpHeight: 8
+  animationDirection: 0
   jump: 32
 --- !u!114 &563510808
 MonoBehaviour:
@@ -28996,7 +28997,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 563510811}
   followSpeed: 5
-  yOffsetIncrease: 2
+  zOffsetIncrease: 0
+  yOffsetIncrease: 0.5
   triggerLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -37475,6 +37477,7 @@ MonoBehaviour:
   speed: 3
   gravity: 0.15
   jumpHeight: 8
+  animationDirection: 0
   jump: 119
 --- !u!143 &1461771442
 CharacterController:
