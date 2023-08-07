@@ -8,6 +8,8 @@ public class pauseMenu : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] GameObject pausePopUp;
     [SerializeField] AudioSource bgSound;
+    public float duration;
+    public string nextscene;
 
     private void Start()
     {
@@ -22,20 +24,55 @@ public class pauseMenu : MonoBehaviour
             bgSound.volume = 0f;
         }
     }
-    public void Resume()
+    public void Close()
     {
-        Time.timeScale = 1.0f;
+        StartCoroutine(Closing());
+        //pauseMenuPanel.SetActive(false);
+        //Time.timeScale = 1;
+    }
+    IEnumerator Closing()
+    {
+        float timer = 0;
+        while (timer < duration)
+        {
+            timer += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        Time.timeScale = 1;
         pausePopUp.SetActive(false);
-        bgSound.volume = 1f;
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        StartCoroutine("MainMenuScene");
+        //Time.timeScale = 1;
+        //SceneManager.LoadScene("Main Menu");
+    }
+    IEnumerator MainMenuScene()
+    {
+        float timer = 0;
+        while (timer < duration)
+        {
+            timer += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        Time.timeScale = 1;
+        SceneManager.LoadScene(nextscene);
     }
 
-    public void Exit()
+    public void Quit()
     {
+        StartCoroutine("Quiting");
+        //Application.Quit();
+    }
+    IEnumerator Quiting()
+    {
+        float timer = 0;
+        while (timer < duration)
+        {
+            timer += Time.unscaledDeltaTime;
+            yield return null;
+        }
         Application.Quit();
     }
     // Update is called once per frame
