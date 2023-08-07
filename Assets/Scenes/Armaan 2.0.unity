@@ -14188,7 +14188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63fd9e005c9ee6f4eaf74fbb265c74e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 2
   jumpForce: 2
   groundLayer:
     serializedVersion: 2
@@ -29612,7 +29612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 563510811}
-  followSpeed: 3
+  followSpeed: 2
   zOffsetIncrease: 0
   yOffsetIncrease: 0.5
   triggerLayer:

@@ -19,13 +19,13 @@ public class PlayerAnimation : MonoBehaviour
         catMoving.SetFloat("Horizontal", horizontal);
         catMoving.SetFloat("Speed", horizontal);
 
-        if (Input.GetButtonDown("Jump"))
+        /*if (Input.GetButtonDown("Jump"))
         {
             catMoving.SetBool("Jump", true);
         }
         else
         {
             catMoving.SetBool("Jump", false);
-        }
+        }*/
     }
 }
