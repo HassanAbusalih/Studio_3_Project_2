@@ -17,18 +17,22 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.A))
+
+
+        if (Input.GetKey(KeyCode.A))
         {
             horizontal = -1f;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            horizontal = 1f;
         }
         if (Input.GetKeyUp(KeyCode.A))
         {
             horizontal = -0.01f;
         }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            horizontal = 1f;
-        }
+
         if (Input.GetKeyUp(KeyCode.D))
         {
             horizontal = 0.01f;
