@@ -21,9 +21,17 @@ public class PlayerAnimation : MonoBehaviour
         {
             horizontal = -1f;
         }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            horizontal = -0.01f;
+        }
         if (Input.GetKeyDown(KeyCode.D))
         {
             horizontal = 1f;
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            horizontal = 0.01f;
         }
         catMoving.SetFloat("Horizontal", horizontal);
         catMoving.SetFloat("Speed", horizontal);
