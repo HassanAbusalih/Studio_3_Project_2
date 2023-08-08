@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : Resettable
 {
+    [SerializeField] Animator catMoving;
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float jumpForce = 10f;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Rigidbody rb;
     [SerializeField] KeyCode jump;
     [SerializeField] bool canJump;
+    
 
     private void Awake()
     {
@@ -20,6 +22,8 @@ public class PlayerMovement : Resettable
     {
 
         float moveHorizontal = Input.GetAxis("Horizontal");
+        catMoving.SetFloat("Horizontal", moveHorizontal);
+        catMoving.SetFloat("Speed", moveHorizontal);
         Vector3 moveDirection = new Vector3(moveHorizontal, 0f, 0f).normalized;
         rb.velocity = new Vector3(moveDirection.x * moveSpeed, rb.velocity.y, 0f);
         if ( canJump == true && Input.GetKeyDown(jump))

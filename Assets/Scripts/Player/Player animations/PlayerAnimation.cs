@@ -6,6 +6,7 @@ public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] Animator catMoving;
     [SerializeField] PlayerMovement player;
+    [SerializeField]float horizontal = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,15 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            horizontal = -1f;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            horizontal = 1f;
+        }
         catMoving.SetFloat("Horizontal", horizontal);
         catMoving.SetFloat("Speed", horizontal);
 
