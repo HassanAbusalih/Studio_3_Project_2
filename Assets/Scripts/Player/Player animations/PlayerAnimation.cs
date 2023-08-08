@@ -7,6 +7,7 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] Animator catMoving;
     [SerializeField] PlayerMovement player;
     [SerializeField]float horizontal = 0f;
+    [SerializeField] bool pressed;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +20,24 @@ public class PlayerAnimation : MonoBehaviour
 
 
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && pressed == false)
         {
             horizontal = -1f;
+            pressed = true;
+        }
+        else
+        {
+            pressed = false;
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && pressed == false)
         {
             horizontal = 1f;
+            pressed = true;
+        }
+        else
+        {
+            pressed = false;
         }
         if (Input.GetKeyUp(KeyCode.A))
         {
