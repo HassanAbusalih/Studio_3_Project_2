@@ -47,7 +47,7 @@ public class CameraFollower : Resettable
     }
     public override void ResetObject()
     {
-        Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y, transform.position.z + originalZOffset);
+        Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y + yOffsetIncrease, transform.position.z + originalZOffset);
         transform.position = desiredPosition;
     }
 }
