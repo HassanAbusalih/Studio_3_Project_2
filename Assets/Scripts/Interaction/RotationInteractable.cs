@@ -7,34 +7,34 @@ public class RotationInteractable : Interactable
     [SerializeField] float cameraRotationTime = 0.5f;
     CameraFollower cameraFollower;
     PlayerMovement player;
-
-    public override void Interact()
-    {
-        Quaternion rotation = new Quaternion();
-        rotation.eulerAngles = new Vector3(0, 30, 0);
-        player.transform.Rotate(rotation.eulerAngles);
-        Vector3 camOffset = cameraFollower.transform.position - player.transform.position;
-        camOffset = rotation * camOffset;
-        StartCoroutine(RotateCamera(camOffset));
-    }
-
-    IEnumerator RotateCamera(Vector3 target)
-    {
-        float time = 0;
-        Vector3 startPos = cameraFollower.transform.position;
-        cameraFollower.enabled = false;
-        while(time < cameraRotationTime)
-        {
-            cameraFollower.transform.position = Vector3.Lerp(startPos, target, time / cameraRotationTime);
-            cameraFollower.transform.LookAt(player.transform.position);
-            yield return null;
-        }
-        cameraFollower.enabled = true;
-    }
-
+    
     void Start()
     {
         cameraFollower = FindObjectOfType<CameraFollower>();
         player = FindObjectOfType<PlayerMovement>();
+    }
+
+    public override void Interact()
+    {
+        Quaternion rotation = Quaternion.Euler(0, rotationAngle, 0);
+        player.transform.rotation *= rotation;
+        Vector3 rotatedCameraOffset = rotation * (cameraFollower.transform.position - player.transform.position);
+        Vector3 targetPos = player.transform.position + rotatedCameraOffset;
+        StartCoroutine(RotateCamera(targetPos));
+    }
+
+    IEnumerator RotateCamera(Vector3 targetPos)
+    {
+        float time = 0;
+        Vector3 startPos = cameraFollower.transform.position;
+        cameraFollower.enabled = false;
+        while (time < cameraRotationTime)
+        {
+            cameraFollower.transform.position = Vector3.Lerp(startPos, targetPos, time / cameraRotationTime);
+            cameraFollower.transform.LookAt(player.transform.position);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        cameraFollower.enabled = true;
     }
 }
