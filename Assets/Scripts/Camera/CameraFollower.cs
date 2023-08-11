@@ -19,7 +19,7 @@ public class CameraFollower : Resettable
         //startRotation = playerTransform.rotation.eulerAngles;
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         //Vector3 offset = new Vector3(0, yOffsetIncrease, originalZOffset + zOffsetIncrease);
         //offset = Quaternion.Euler(playerTransform.rotation.eulerAngles - startRotation) * offset;
@@ -54,7 +54,7 @@ public class CameraFollower : Resettable
     }
     public override void ResetObject()
     {
-        Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y + yOffsetIncrease, transform.position.z + originalZOffset);
+        Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y, transform.position.z );
         transform.position = desiredPosition;
     }
 }
