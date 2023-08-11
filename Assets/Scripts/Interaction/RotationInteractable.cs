@@ -14,7 +14,7 @@ public class RotationInteractable : Interactable
         player = FindObjectOfType<PlayerMovement>();
     }
 
-    public override void Interact()
+    protected override void Interact()
     {
         Quaternion rotation = Quaternion.Euler(0, rotationAngle, 0);
         player.transform.rotation *= rotation;
