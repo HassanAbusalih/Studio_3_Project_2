@@ -20,11 +20,9 @@ public class PlayerMovement : Resettable
 
     private void Update()
     {
-
         float moveHorizontal = Input.GetAxis("Horizontal");
         Vector3 moveDirection = new Vector3(moveHorizontal, 0f, 0f).normalized;
-        Quaternion targetRotation = new();
-        targetRotation.eulerAngles = transform.rotation.eulerAngles - startRotation;
+        Quaternion targetRotation = Quaternion.Euler(transform.rotation.eulerAngles - startRotation);
         moveDirection = targetRotation * moveDirection;
         rb.velocity = new Vector3(moveDirection.x * moveSpeed, rb.velocity.y, moveDirection.z * moveSpeed);
         if ( canJump == true && Input.GetKeyDown(jump))

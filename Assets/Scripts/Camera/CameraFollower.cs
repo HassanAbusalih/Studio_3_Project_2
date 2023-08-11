@@ -8,21 +8,28 @@ public class CameraFollower : Resettable
     [SerializeField] float followSpeed = 5f;
     [SerializeField] float zOffsetIncrease;
     [SerializeField] float yOffsetIncrease;
-    float originalZOffset; 
+    float originalZOffset;
     bool isTriggered = false;
     [SerializeField] LayerMask triggerLayer;
+    //Vector3 startRotation;
 
     private void Start()
     {
         originalZOffset = transform.position.z - playerTransform.position.z;
+        //startRotation = playerTransform.rotation.eulerAngles;
     }
 
     void LateUpdate()
     {
+        //Vector3 offset = new Vector3(0, yOffsetIncrease, originalZOffset + zOffsetIncrease);
+        //offset = Quaternion.Euler(playerTransform.rotation.eulerAngles - startRotation) * offset;
+        //Vector3 desiredPosition = playerTransform.position + offset;
+        //Quaternion targetRotation = Quaternion.LookRotation(playerTransform.position - transform.position);
         Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y + yOffsetIncrease, transform.position.z);
         if (!isTriggered)
         {
             transform.position = Vector3.Lerp(transform.position, desiredPosition, followSpeed * Time.deltaTime);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, followSpeed * Time.deltaTime);
         }
     }
 
