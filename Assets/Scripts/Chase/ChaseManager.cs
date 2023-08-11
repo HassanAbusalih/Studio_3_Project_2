@@ -8,17 +8,36 @@ public class ChaseManager : Resettable
     [SerializeField] float fireActivationInterval = 0.5f;
     [SerializeField] float height = 1;
     [SerializeField] Transform endPoint;
-    FireController[] fires;
+    [SerializeField] FireController[] fires;
+    BoxCollider chaseCollider;
+    BoxCollider endCollider;
     ResetTrigger resetter;
     Vector3 startPos;
     bool startable = true;
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(0, 0, 0.5f, 0.2f);
+        BoxCollider chaseCollider = GetComponent<BoxCollider>();
+        BoxCollider endCollider = endPoint.GetComponent<BoxCollider>();
+        Gizmos.DrawCube(transform.position, chaseCollider.size);
+        if (endCollider != null)
+        {
+            Gizmos.DrawCube(endPoint.position, endCollider.size);
+        }
+        else
+        {
+            Gizmos.DrawCube(endPoint.position, chaseCollider.size);
+        }
+    }
+
     void Start()
     {
+        chaseCollider = GetComponent<BoxCollider>();
+        endPoint.TryGetComponent<BoxCollider>(out endCollider);
         resetter = gameObject.AddComponent<ResetTrigger>();
         resetter.enabled = false;
         startPos = transform.position;
-        fires = FindObjectsOfType<FireController>();
         foreach (FireController fire in fires)
         {
             fire.GetDistance(gameObject);

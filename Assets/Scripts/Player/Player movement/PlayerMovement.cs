@@ -10,10 +10,11 @@ public class PlayerMovement : Resettable
     [SerializeField] Rigidbody rb;
     [SerializeField] KeyCode jump;
     [SerializeField] bool canJump;
-    
+    Vector3 startRotation;
 
     private void Awake()
     {
+        startRotation = transform.rotation.eulerAngles;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -22,11 +23,13 @@ public class PlayerMovement : Resettable
 
         float moveHorizontal = Input.GetAxis("Horizontal");
         Vector3 moveDirection = new Vector3(moveHorizontal, 0f, 0f).normalized;
-        rb.velocity = new Vector3(moveDirection.x * moveSpeed, rb.velocity.y, 0f);
+        Quaternion targetRotation = new();
+        targetRotation.eulerAngles = transform.rotation.eulerAngles - startRotation;
+        moveDirection = targetRotation * moveDirection;
+        rb.velocity = new Vector3(moveDirection.x * moveSpeed, rb.velocity.y, moveDirection.z * moveSpeed);
         if ( canJump == true && Input.GetKeyDown(jump))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            
         }
     }
 
@@ -34,7 +37,6 @@ public class PlayerMovement : Resettable
     {
         if (groundLayer == (groundLayer | (1 << other.gameObject.layer)))
         {
-            
             canJump = true; 
         }
     }
@@ -43,7 +45,6 @@ public class PlayerMovement : Resettable
     {
         if (groundLayer == (groundLayer | (1 << other.gameObject.layer)))
         {
-
             canJump = false;
         }
     }
