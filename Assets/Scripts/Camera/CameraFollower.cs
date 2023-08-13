@@ -9,8 +9,6 @@ public class CameraFollower : Resettable
     [SerializeField] float zOffsetIncrease;
     [SerializeField] float yOffsetIncrease;
     float originalZOffset;
-    bool isTriggered = false;
-    [SerializeField] LayerMask triggerLayer;
     Vector3 startRotation;
 
     private void Start()
@@ -26,11 +24,8 @@ public class CameraFollower : Resettable
         Vector3 desiredRotation = playerTransform.position + offset;
         Quaternion targetRotation = Quaternion.LookRotation(playerTransform.position - transform.position);
         Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y + yOffsetIncrease, transform.position.z);
-        if (!isTriggered)
-        {
-            transform.position = Vector3.Lerp(transform.position, desiredRotation, followSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, followSpeed * Time.deltaTime);
-        }
+        transform.position = Vector3.Lerp(transform.position, desiredRotation, followSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, followSpeed * Time.deltaTime);
     }
 
     public void ZoomOut(float increase)
