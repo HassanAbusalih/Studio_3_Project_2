@@ -11,47 +11,38 @@ public class CameraFollower : Resettable
     float originalZOffset;
     bool isTriggered = false;
     [SerializeField] LayerMask triggerLayer;
-    //Vector3 startRotation;
+    Vector3 startRotation;
 
     private void Start()
     {
         originalZOffset = transform.position.z - playerTransform.position.z;
-        //startRotation = playerTransform.rotation.eulerAngles;
+        startRotation = playerTransform.rotation.eulerAngles;
     }
 
     void FixedUpdate()
     {
-        //Vector3 offset = new Vector3(0, yOffsetIncrease, originalZOffset + zOffsetIncrease);
-        //offset = Quaternion.Euler(playerTransform.rotation.eulerAngles - startRotation) * offset;
-        //Vector3 desiredPosition = playerTransform.position + offset;
-        //Quaternion targetRotation = Quaternion.LookRotation(playerTransform.position - transform.position);
+        Vector3 offset = new Vector3(0, yOffsetIncrease, originalZOffset + zOffsetIncrease);
+        offset = Quaternion.Euler(playerTransform.rotation.eulerAngles - startRotation) * offset;
+        Vector3 desiredRotation = playerTransform.position + offset;
+        Quaternion targetRotation = Quaternion.LookRotation(playerTransform.position - transform.position);
         Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y + yOffsetIncrease, transform.position.z);
         if (!isTriggered)
         {
-            transform.position = Vector3.Lerp(transform.position, desiredPosition, followSpeed * Time.deltaTime);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, followSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, desiredRotation, followSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, followSpeed * Time.deltaTime);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void ZoomOut(float increase)
     {
-        if (triggerLayer == (triggerLayer | (1 << other.gameObject.layer)))
-        {
-            isTriggered = true;
-            Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y, transform.position.z + originalZOffset + zOffsetIncrease);
-            transform.position = desiredPosition;
-        }
+        Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z + increase);
     }
 
-    private void OnTriggerExit(Collider other)
+    public void ZoomIn(float decrease)
     {
-        if (triggerLayer == (triggerLayer | (1 << other.gameObject.layer)))
-        {
-            isTriggered = false;
-            Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y , transform.position.z + originalZOffset);
-            transform.position = desiredPosition;
-        }
+        Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z + decrease);
     }
+
     public override void ResetObject()
     {
         Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y, transform.position.z );
