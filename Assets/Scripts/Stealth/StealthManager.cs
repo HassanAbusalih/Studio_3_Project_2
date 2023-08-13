@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// This script manages the stealth sequences in the game. A timer ticks up when the player is seen by an enemy, and ticks down when they are not in sight.
@@ -12,6 +13,8 @@ public class StealthManager : MonoBehaviour
 {
     [SerializeField] List<EnemySight> enemies = new();
     [SerializeField] float timeForDetection = 5;
+    [SerializeField] Image stealthIndicator;
+    [SerializeField] Image background;
     float currentTime;
     PlayerMovement player;
     bool inArea;
@@ -27,6 +30,10 @@ public class StealthManager : MonoBehaviour
         if (inArea && CheckForPlayer())
         {
             currentTime += Time.deltaTime;
+            if (stealthIndicator != null )
+            {
+                stealthIndicator.fillAmount = currentTime/timeForDetection;
+            }
             if (currentTime >= timeForDetection)
             {
                 CatchPlayer();
@@ -65,6 +72,11 @@ public class StealthManager : MonoBehaviour
         if (other.gameObject == player.gameObject)
         {
             inArea = true;
+            if (stealthIndicator != null && background != null)
+            {
+                stealthIndicator.gameObject.SetActive(true);
+                background.gameObject.SetActive(true);
+            }
         }
     }
 
@@ -73,6 +85,11 @@ public class StealthManager : MonoBehaviour
         if (other.gameObject == player.gameObject)
         {
             inArea = false;
+            if (stealthIndicator != null && background != null)
+            {
+                stealthIndicator.gameObject.SetActive(false);
+                background.gameObject.SetActive(false);
+            }
         }
     }
 }
