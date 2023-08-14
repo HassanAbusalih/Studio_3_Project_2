@@ -6,12 +6,14 @@ Shader "Custom/Fire Shader"
         _NoiseTex ("Noise Texture", 2D) = "white" {}
         _Speed ("Speed", Float) = 1.0
         _Transparency ("Transparency", Float) = 1.0
-        _Color ("Color", Color) = (1,1,1,1)
+        _Intensity ("Intensity", Float) = 1.0
+        _Color1 ("Color1", Color) = (1,1,1,1)
+        _Color2 ("Color2", Color) = (1,1,1,1)
     }
     SubShader
     {
         Tags { "Queue"="Transparent" "RenderType"="Transparent" }
-        Blend SrcAlpha OneMinusSrcAlpha
+        Blend One One
         LOD 100
 
         Pass
@@ -39,7 +41,9 @@ Shader "Custom/Fire Shader"
             sampler2D _NoiseTex;
             float _Speed;
             float _Transparency;
-            fixed4 _Color;
+            fixed4 _Color1;
+            fixed4 _Color2;
+            float _Intensity;
             
             v2f vert (appdata v)
             {
@@ -53,7 +57,9 @@ Shader "Custom/Fire Shader"
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
                 fixed4 noise = tex2D(_NoiseTex, i.uv + float2(0, _Time.y * _Speed));
-                col.rbg *= noise.rgb * _Color.rgb;
+                fixed4 lerpedColor = lerp(_Color1, _Color2, col.r);
+                col.rbg *= noise.rgb * lerpedColor.rgb;
+                col.rbg *= _Intensity;
                 col.a = col.r * _Transparency;
                 return col;
             }
