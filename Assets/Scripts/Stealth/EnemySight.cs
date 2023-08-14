@@ -16,10 +16,10 @@ public class EnemySight : MonoBehaviour
     public bool PlayerInSight(PlayerMovement player)
     {
         Vector3 direction = player.transform.position - transform.position;
-        if (Vector3.Angle(transform.forward, direction) > maxAngle)
-        {
-            return false;
-        }
+        //if (Vector3.Angle(transform.forward, direction) > maxAngle)
+        //{
+          //  return false;
+        //}
         RaycastHit hit;
         if (Physics.Raycast(transform.position, direction, out hit))
         {
