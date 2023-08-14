@@ -30,9 +30,13 @@ public class StealthManager : MonoBehaviour
         if (inArea && CheckForPlayer())
         {
             currentTime += Time.deltaTime;
-            if (stealthIndicator != null )
+            if (currentTime > timeForDetection)
             {
-                stealthIndicator.fillAmount = currentTime/timeForDetection;
+                currentTime = timeForDetection;
+            }
+            if (stealthIndicator != null)
+            {
+                stealthIndicator.fillAmount = currentTime / timeForDetection;
             }
             if (currentTime >= timeForDetection)
             {
@@ -52,6 +56,11 @@ public class StealthManager : MonoBehaviour
     void CatchPlayer()
     {
         // Should probably have an animation here
+        currentTime = 0;
+        if (stealthIndicator != null)
+        {
+            stealthIndicator.fillAmount = currentTime / timeForDetection;
+        }
         Checkpoint.ResetGame();
     }
 

@@ -4,37 +4,32 @@ using System.Collections;
 public class RotationInteractable : Interactable
 {
     [SerializeField] float rotationAngle = 30;
-    [SerializeField] float cameraRotationTime = 0.5f;
-    CameraFollower cameraFollower;
+    [SerializeField] float rotationTime = 0.5f;
     PlayerMovement player;
     
     void Start()
     {
-        cameraFollower = FindObjectOfType<CameraFollower>();
         player = FindObjectOfType<PlayerMovement>();
     }
 
     protected override void Interact()
     {
         Quaternion rotation = Quaternion.Euler(0, rotationAngle, 0);
-        player.transform.rotation *= rotation;
-        Vector3 rotatedCameraOffset = rotation * (cameraFollower.transform.position - player.transform.position);
-        Vector3 targetPos = player.transform.position + rotatedCameraOffset;
-        StartCoroutine(RotateCamera(targetPos));
+        Quaternion targetRotation = player.transform.rotation * rotation;
+        StartCoroutine(RotateCamera(targetRotation));
     }
 
-    IEnumerator RotateCamera(Vector3 targetPos)
+    IEnumerator RotateCamera(Quaternion targetRotation)
     {
         float time = 0;
-        Vector3 startPos = cameraFollower.transform.position;
-        cameraFollower.enabled = false;
-        while (time < cameraRotationTime)
+        Quaternion startRot = player.transform.rotation;
+        //player.enabled = false;
+        while (time < rotationTime)
         {
-            cameraFollower.transform.position = Vector3.Lerp(startPos, targetPos, time / cameraRotationTime);
-            cameraFollower.transform.LookAt(player.transform.position);
+            player.transform.rotation = Quaternion.Lerp(startRot, targetRotation, time / rotationTime);
             time += Time.deltaTime;
             yield return null;
         }
-        cameraFollower.enabled = true;
+        //player.enabled = true;
     }
 }

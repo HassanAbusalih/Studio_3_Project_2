@@ -15,6 +15,11 @@ public class Checkpoint : MonoBehaviour
 
     private void OnEnable()
     {
+        Resettable player = FindObjectOfType<PlayerMovement>();
+        if (!resettables.Contains(player))
+        {
+            resettables.Add(player);
+        }
         ResetGame += ReturnToCheckpoint;
     }
 
