@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: f77c5f3fb1c591444b487ddb40b61a06
   - enabled: 1
+    path: Assets/Scenes/Prieance (Tutorial).unity
+    guid: 781c588f042fa8f419069c59b8a89985
+  - enabled: 1
     path: Assets/Scenes/Armaan 2.0.unity
     guid: 156a95dcc3c7f8f458eeb00ad9daa231
   m_configObjects: {}

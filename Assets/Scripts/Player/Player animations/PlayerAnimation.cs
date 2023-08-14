@@ -8,18 +8,9 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] PlayerMovement player;
     [SerializeField]float horizontal = 0f;
     [SerializeField] bool pressed;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
-
-
-
         if (Input.GetKey(KeyCode.A) && pressed == false)
         {
             horizontal = -1f;
@@ -43,14 +34,12 @@ public class PlayerAnimation : MonoBehaviour
         {
             horizontal = -0.01f;
         }
-
         if (Input.GetKeyUp(KeyCode.D))
         {
             horizontal = 0.01f;
         }
         catMoving.SetFloat("Horizontal", horizontal);
         catMoving.SetFloat("Speed", horizontal);
-
         /*if (Input.GetButtonDown("Jump"))
         {
             catMoving.SetBool("Jump", true);

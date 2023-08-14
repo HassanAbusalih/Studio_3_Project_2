@@ -7,7 +7,7 @@ public class ResetTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerMovement>() != null)
+        if (other.GetComponent<PlayerMovement>() != null && enabled)
         {
             // Implement fading in and out at some point
             Checkpoint.ResetGame.Invoke();

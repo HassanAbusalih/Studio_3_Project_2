@@ -14,7 +14,7 @@ public class InteractionHandler : MonoBehaviour
     {
         if (currentInteractable != null && Input.GetKeyDown(interactionButton))
         {
-            currentInteractable.Interact();
+            currentInteractable.TryInteraction();
         }
     }
 

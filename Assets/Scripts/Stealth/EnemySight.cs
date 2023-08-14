@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class EnemySight : MonoBehaviour
 {
+    [SerializeField] float maxAngle = 60;
+    
     /// <summary>
     /// Makes a raycast from the enemy's position to the player.
     /// </summary>
@@ -14,6 +16,10 @@ public class EnemySight : MonoBehaviour
     public bool PlayerInSight(PlayerMovement player)
     {
         Vector3 direction = player.transform.position - transform.position;
+        if (Vector3.Angle(transform.forward, direction) > maxAngle)
+        {
+            return false;
+        }
         RaycastHit hit;
         if (Physics.Raycast(transform.position, direction, out hit))
         {

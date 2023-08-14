@@ -17,7 +17,7 @@ public class AnimatedInteractable : Interactable
         }
     }
 
-    public override void Interact()
+    protected override void Interact()
     {
         if (animator == null || animatorBoolName == null) { return; }
         animator.SetBool(animatorBoolName, true);
