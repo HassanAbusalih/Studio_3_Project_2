@@ -41,7 +41,7 @@ public class CameraFollower : Resettable
         if (triggerLayer == (triggerLayer | (1 << other.gameObject.layer)))
         {
             isTriggered = false;
-            Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y , transform.position.z + originalZOffset);
+            Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y , transform.position.z + originalZOffset- zOffsetIncrease);
             transform.position = desiredPosition;
         }
     }
