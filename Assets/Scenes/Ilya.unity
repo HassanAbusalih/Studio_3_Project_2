@@ -27419,7 +27419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690751555}
   m_LocalRotation: {x: 0.052335896, y: 0, z: 0, w: 0.9986295}
-  m_LocalPosition: {x: -8.110001, y: 1.18, z: -5.5}
+  m_LocalPosition: {x: -8.110001, y: 1.18, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27440,7 +27440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1921055273}
   followSpeed: 2
-  zOffsetIncrease: 0
+  zOffsetIncrease: -2.5
   yOffsetIncrease: 1
 --- !u!65 &690751560
 BoxCollider:
@@ -38465,7 +38465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &971669826
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -79063,7 +79063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7976138404818722391, guid: 8fbf32aff4ed6d04f80276d853941210, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.82
+      value: 57.7
       objectReference: {fileID: 0}
     - target: {fileID: 7976138404818722391, guid: 8fbf32aff4ed6d04f80276d853941210, type: 3}
       propertyPath: m_LocalPosition.y
@@ -79324,7 +79324,7 @@ MonoBehaviour:
   triggerLayer:
     serializedVersion: 2
     m_Bits: 64
-  zoomLevel: 10
+  zoomLevel: -2
 --- !u!114 &1921055280
 MonoBehaviour:
   m_ObjectHideFlags: 0
