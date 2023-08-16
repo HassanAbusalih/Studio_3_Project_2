@@ -28,7 +28,7 @@ public class fireSpread : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player" || other.gameObject.tag == "Branch")
         {
             fire.Play();
             fire2.Play();

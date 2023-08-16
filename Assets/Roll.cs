@@ -10,6 +10,7 @@ public class Roll : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     void Update()
@@ -25,7 +26,16 @@ public class Roll : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            rb.constraints = RigidbodyConstraints.None;
+            //rb.constraints = RigidbodyConstraints.FreezeRotation;
             rb.AddTorque(transform.right);
         }
+
+        if(collision.gameObject.tag == "Rock")
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
     }
+
+
 }

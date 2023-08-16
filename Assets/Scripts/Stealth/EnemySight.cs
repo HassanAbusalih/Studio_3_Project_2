@@ -13,17 +13,17 @@ public class EnemySight : MonoBehaviour
     /// </summary>
     /// <param name="player">The PlayerMovement script attached to the player GameObject.</param>
     /// <returns>True if the raycast hits the player's GameObject, false otherwise.</returns>
-    public bool PlayerInSight(PlayerMovement player)
+    public bool PlayerInSight(PlayerMovement player, LayerMask mask)
     {
         Vector3 direction = player.transform.position - transform.position;
-        //if (Vector3.Angle(transform.forward, direction) > maxAngle)
-        //{
-          //  return false;
-        //}
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, direction, out hit))
+        if (Vector3.Angle(transform.forward, direction) > maxAngle)
         {
-            if (hit.collider.gameObject == player.gameObject)
+            return false;
+        }
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, direction, out hit, float.MaxValue, mask))
+        {
+            if (player.gameObject == hit.transform.gameObject)
             {
                 return true;
             }
