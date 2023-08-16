@@ -19,23 +19,23 @@ public class CameraFollower : Resettable
 
     void FixedUpdate()
     {
-        Vector3 offset = new Vector3(0, yOffsetIncrease, originalZOffset + zOffsetIncrease);
+        Vector3 offset = new Vector3(0, yOffsetIncrease, originalZOffset);
         offset = Quaternion.Euler(playerTransform.rotation.eulerAngles - startRotation) * offset;
         Vector3 desiredRotation = playerTransform.position + offset;
         Quaternion targetRotation = Quaternion.LookRotation(playerTransform.position - transform.position);
-        Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y + yOffsetIncrease, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, desiredRotation, followSpeed * Time.deltaTime);
+        Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y + yOffsetIncrease, playerTransform.position.z + zOffsetIncrease);
+        transform.position = Vector3.Lerp(transform.position, desiredPosition, followSpeed * Time.deltaTime);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, followSpeed * Time.deltaTime);
     }
 
     public void ZoomOut(float increase)
     {
-        Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z + increase);
+       zOffsetIncrease = zOffsetIncrease + increase;
     }
 
     public void ZoomIn(float decrease)
     {
-        Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z + decrease);
+        zOffsetIncrease = zOffsetIncrease - decrease;
     }
 
     public override void ResetObject()
