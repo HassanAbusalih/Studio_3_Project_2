@@ -5,12 +5,13 @@ using UnityEngine;
 public class Roll : MonoBehaviour
 {
     Rigidbody rb;
+    [SerializeField] bool canHit;
     //public float speed;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.constraints = RigidbodyConstraints.FreezeAll;
+       // rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     void Update()
@@ -24,9 +25,9 @@ public class Roll : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && canHit)
         {
-            rb.constraints = RigidbodyConstraints.None;
+            //rb.constraints = RigidbodyConstraints.None;
             //rb.constraints = RigidbodyConstraints.FreezeRotation;
             rb.AddTorque(transform.right);
         }
