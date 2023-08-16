@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,11 +22,19 @@ public class StealthManager : MonoBehaviour
 
     void Start()
     {
+        stealthIndicator.type = Image.Type.Filled;
         player = FindObjectOfType<PlayerMovement>();
+        gameObject.layer = 2;
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(0, 0, 0.5f, 0.2f);
+        BoxCollider chaseCollider = GetComponent<BoxCollider>();
+        Gizmos.DrawCube(transform.position, chaseCollider.size);
+    }
 
-    void Update()
+        void Update()
     {
         if (inArea && CheckForPlayer())
         {
@@ -50,6 +59,10 @@ public class StealthManager : MonoBehaviour
             {
                 currentTime = 0;
             }
+            if (stealthIndicator.enabled)
+            {
+                stealthIndicator.fillAmount = currentTime / timeForDetection;
+            }
         }
     }
 
@@ -66,9 +79,10 @@ public class StealthManager : MonoBehaviour
 
     bool CheckForPlayer()
     {
+        LayerMask mask = ~((1 << LayerMask.NameToLayer("camera zoom out")) | (1 << LayerMask.NameToLayer("camera zoom in")) | (1 << gameObject.layer));
         foreach (EnemySight enemy in enemies)
         {
-            if (enemy.PlayerInSight(player))
+            if (enemy.PlayerInSight(player, mask))
             {
                 return true;
             }
@@ -85,6 +99,7 @@ public class StealthManager : MonoBehaviour
             {
                 stealthIndicator.gameObject.SetActive(true);
                 background.gameObject.SetActive(true);
+                stealthIndicator.fillAmount = currentTime / timeForDetection;
             }
         }
     }
