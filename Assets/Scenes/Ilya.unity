@@ -27662,6 +27662,7 @@ MonoBehaviour:
   followSpeed: 2
   zOffsetIncrease: -2.5
   yOffsetIncrease: 1
+  zoom: 0
 --- !u!65 &690751560
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32519,14 +32520,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 907484fdb81a04ab78e45fa17a58e862, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a07280cbbb2524feea5241c7f1fe3c72, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -37426,14 +37427,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1a12cc7ed072f45e280e95d6597ef151, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 184236b4c461343d3ad9f59388cec4e2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -44170,6 +44171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9518016, guid: 841e8e4f1a54c754396b7559d1cc6fad, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: be8313a078c3a41bf832ed90f7acff2c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 841e8e4f1a54c754396b7559d1cc6fad, type: 3}
 --- !u!4 &1105142571 stripped
@@ -45326,7 +45331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1128300395}
   - component: {fileID: 1128300394}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Zoom Out 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49044,6 +49049,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 1
       objectReference: {fileID: 0}
+    - target: {fileID: 421178, guid: 498a13929c1393e44be1126bcadc448b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.37547132
+      objectReference: {fileID: 0}
+    - target: {fileID: 421178, guid: 498a13929c1393e44be1126bcadc448b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.57854766
+      objectReference: {fileID: 0}
+    - target: {fileID: 421178, guid: 498a13929c1393e44be1126bcadc448b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6324858
+      objectReference: {fileID: 0}
+    - target: {fileID: 421178, guid: 498a13929c1393e44be1126bcadc448b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.3525135
+      objectReference: {fileID: 0}
     - target: {fileID: 441500, guid: 498a13929c1393e44be1126bcadc448b, type: 3}
       propertyPath: m_RootOrder
       value: 32
@@ -49099,6 +49120,35 @@ PrefabInstance:
     - target: {fileID: 441500, guid: 498a13929c1393e44be1126bcadc448b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 482426, guid: 498a13929c1393e44be1126bcadc448b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.3525135
+      objectReference: {fileID: 0}
+    - target: {fileID: 482426, guid: 498a13929c1393e44be1126bcadc448b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.6324858
+      objectReference: {fileID: 0}
+    - target: {fileID: 482426, guid: 498a13929c1393e44be1126bcadc448b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.57854766
+      objectReference: {fileID: 0}
+    - target: {fileID: 482426, guid: 498a13929c1393e44be1126bcadc448b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.3754713
+      objectReference: {fileID: 0}
+    - target: {fileID: 9582704, guid: 498a13929c1393e44be1126bcadc448b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: be8313a078c3a41bf832ed90f7acff2c, type: 2}
+    - target: {fileID: 9582704, guid: 498a13929c1393e44be1126bcadc448b, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'Root'\n\tTransform 'IndexFinger_02'\n\tTransform
+        'Elbow_R'\n\tTransform 'Finger_02'\n\tTransform 'Finger_03'\n\tTransform
+        'Ball_L'\n\tTransform 'Thumb_02'\n\tTransform 'Ball_R'\n\tTransform 'Clavicle_L'\n\tTransform
+        'Finger_01'\n\tand more ...\n\tFrom animation clip 'mixamo.com'"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 498a13929c1393e44be1126bcadc448b, type: 3}
@@ -64300,7 +64350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1556429032
 Transform:
   m_ObjectHideFlags: 0
@@ -66264,6 +66314,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9571598, guid: 48b470c6a762f60438c631f219257520, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: be8313a078c3a41bf832ed90f7acff2c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48b470c6a762f60438c631f219257520, type: 3}
 --- !u!4 &1599053899 stripped
@@ -79904,7 +79958,7 @@ MonoBehaviour:
   cameraZoom: {fileID: 690751559}
   triggerLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
   depthIncrease: -2.5
   heightIncrease: 0
 --- !u!114 &1921055280
