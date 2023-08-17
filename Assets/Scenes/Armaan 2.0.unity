@@ -33505,7 +33505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 563510811}
   followSpeed: 2
-  zOffsetIncrease: 0
+  zOffsetIncrease: -2.5
   yOffsetIncrease: 0.5
 --- !u!65 &1108417842
 BoxCollider:
@@ -49646,6 +49646,10 @@ PrefabInstance:
       value: Cat_L_Gray
       objectReference: {fileID: 0}
     - target: {fileID: 7348536701773563117, guid: 8fbf32aff4ed6d04f80276d853941210, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348536701773563117, guid: 8fbf32aff4ed6d04f80276d853941210, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -49695,11 +49699,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7976138404818722391, guid: 8fbf32aff4ed6d04f80276d853941210, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 181.16
+      value: -1.12
       objectReference: {fileID: 0}
     - target: {fileID: 7976138404818722391, guid: 8fbf32aff4ed6d04f80276d853941210, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.122
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7976138404818722391, guid: 8fbf32aff4ed6d04f80276d853941210, type: 3}
       propertyPath: m_LocalPosition.z
@@ -58490,8 +58494,9 @@ MonoBehaviour:
   cameraZoom: {fileID: 1108417841}
   triggerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  zoomLevel: 10
+    m_Bits: 256
+  depthIncrease: -1
+  heightIncrease: 2
 --- !u!65 &1941083426
 BoxCollider:
   m_ObjectHideFlags: 0
