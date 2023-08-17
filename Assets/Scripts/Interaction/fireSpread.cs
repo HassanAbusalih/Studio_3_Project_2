@@ -11,6 +11,8 @@ public class fireSpread : MonoBehaviour
     [SerializeField] ParticleSystem fire5;
     [SerializeField] ParticleSystem fire6;
     [SerializeField] float timer = 5f;
+   // [SerializeField] bool isBurnt;
+    //[SerializeField] Rigidbody treerb;
     
 
     //[SerializeField] ParticleSystem[] particles;
@@ -23,7 +25,7 @@ public class fireSpread : MonoBehaviour
         fire4.Pause();
         fire5.Pause();
         fire6.Pause();
-        
+        //isBurnt = false;
     }
 
     void Update()
@@ -43,9 +45,13 @@ public class fireSpread : MonoBehaviour
                 fire4.Play();
                 fire5.Play();
                 fire6.Play();
+                //isBurnt = true;
             }
             
-            
+            /*if(isBurnt == true)
+            {
+                treerb.isKinematic = false;
+            }*/
         }
     }
 }
