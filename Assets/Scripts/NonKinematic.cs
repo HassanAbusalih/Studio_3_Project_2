@@ -6,6 +6,7 @@ using UnityEngine;
 public class NonKinematic : MonoBehaviour
 {
     [SerializeField] Rigidbody[] rigidbodies;
+    [SerializeField] AudioSource[] treefallingSFX;
 
     private void Start()
     {
@@ -19,7 +20,9 @@ public class NonKinematic : MonoBehaviour
     {
         if (other.GetComponent<PlayerMovement>() == null) { return; }
         foreach (var rigidbody in rigidbodies)
+        foreach (var audiosource in treefallingSFX)
         {
+            audiosource.Play();
             rigidbody.isKinematic = false;
         }
     }
