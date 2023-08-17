@@ -11,11 +11,35 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] bool audioPlayed;
     [SerializeField] AudioSource playerJump;
     [SerializeField] AudioSource playerWalkSFX;
+    [SerializeField] bool canJump;
+    [SerializeField] LayerMask groundLayer;
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (groundLayer == (groundLayer | (1 << other.gameObject.layer)))
+        {
+            canJump = true;
+        }
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (groundLayer == (groundLayer | (1 << other.gameObject.layer)))
+        {
+            canJump = false;
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (groundLayer == (groundLayer | (1 << other.gameObject.layer)))
+        {
+
+            canJump = true;
+        }
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && canJump)
         {
             playerJump.Play();
         }
@@ -58,4 +82,5 @@ public class PlayerAnimation : MonoBehaviour
         catMoving.SetFloat("Speed", horizontal);
         
     }
+    
 }

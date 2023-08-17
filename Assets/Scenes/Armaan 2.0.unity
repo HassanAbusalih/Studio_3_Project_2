@@ -8047,7 +8047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1493958779012619316, guid: b9de24523a11d714db3851b5f0f9d527, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.559
+      value: -23.94
       objectReference: {fileID: 0}
     - target: {fileID: 1493958779012619316, guid: b9de24523a11d714db3851b5f0f9d527, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16360,6 +16360,10 @@ MonoBehaviour:
   audioPlayed: 0
   playerJump: {fileID: 563510815}
   playerWalkSFX: {fileID: 101649058}
+  canJump: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!95 &563510809
 Animator:
   serializedVersion: 5
@@ -20870,7 +20874,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1493958779012619316, guid: b9de24523a11d714db3851b5f0f9d527, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.024
+      value: -23.214
       objectReference: {fileID: 0}
     - target: {fileID: 1493958779012619316, guid: b9de24523a11d714db3851b5f0f9d527, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20963,10 +20967,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.1
-  m_Height: 1
+  m_Radius: 0.07
+  m_Height: 0.8
   m_Direction: 0
-  m_Center: {x: 0.0017053336, y: 0.044984005, z: -0.0013525337}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &732277279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23864,8 +23868,8 @@ MonoBehaviour:
   triggerLayer:
     serializedVersion: 2
     m_Bits: 256
-  depthIncrease: -2
-  heightIncrease: 3
+  depthIncrease: 4
+  heightIncrease: 6
 --- !u!65 &812327940
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23937,8 +23941,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812327938}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 182.87, y: 2.86, z: -3}
-  m_LocalScale: {x: 1.8484237, y: 1, z: 1}
+  m_LocalPosition: {x: 183.269, y: 2.86, z: -3}
+  m_LocalScale: {x: 2.9466445, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -30316,7 +30320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1493958779012619316, guid: b9de24523a11d714db3851b5f0f9d527, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.277
+      value: -23.658
       objectReference: {fileID: 0}
     - target: {fileID: 1493958779012619316, guid: b9de24523a11d714db3851b5f0f9d527, type: 3}
       propertyPath: m_LocalPosition.y
@@ -32536,10 +32540,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.1
-  m_Height: 1
+  m_Radius: 0.07
+  m_Height: 0.8
   m_Direction: 0
-  m_Center: {x: 0.0017053336, y: 0.044984005, z: -0.0013525337}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &1048959421
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32549,7 +32553,7 @@ BoxCollider:
   m_GameObject: {fileID: 1048959410}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.8140006, y: 0.71305275, z: 0.14940427}
   m_Center: {x: 0.0016738744, y: 0.29619005, z: -0.0013372746}
@@ -36711,7 +36715,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 57b9802931f444410ba0553cb6f2e000, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.25
   m_Pitch: 1.1
   Loop: 0
   Mute: 0
@@ -46693,7 +46697,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 40
+  m_Constraints: 44
   m_CollisionDetection: 0
 --- !u!136 &1522678377
 CapsuleCollider:
@@ -48352,7 +48356,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 57b9802931f444410ba0553cb6f2e000, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.25
   m_Pitch: 1.1
   Loop: 0
   Mute: 0
@@ -51183,11 +51187,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7976138404818722391, guid: 8fbf32aff4ed6d04f80276d853941210, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 180.42
+      value: 181.017
       objectReference: {fileID: 0}
     - target: {fileID: 7976138404818722391, guid: 8fbf32aff4ed6d04f80276d853941210, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.07
+      value: 3.438
       objectReference: {fileID: 0}
     - target: {fileID: 7976138404818722391, guid: 8fbf32aff4ed6d04f80276d853941210, type: 3}
       propertyPath: m_LocalPosition.z
@@ -52070,10 +52074,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.1
-  m_Height: 1
+  m_Radius: 0.07
+  m_Height: 0.8
   m_Direction: 0
-  m_Center: {x: 0.0017053336, y: 0.044984005, z: -0.0013525337}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1650727149
 GameObject:
   m_ObjectHideFlags: 0
@@ -56421,6 +56425,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1686021177304871604, guid: ebee340de387f334f9ac44e044abd8fb, type: 3}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
     - target: {fileID: 1686021177305034388, guid: ebee340de387f334f9ac44e044abd8fb, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -58593,8 +58601,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866608591}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 114.27, y: 0.39, z: -3}
-  m_LocalScale: {x: 3.9391222, y: 1, z: 1}
+  m_LocalPosition: {x: 114.1, y: 0.39, z: -3}
+  m_LocalScale: {x: 4.703312, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -66728,7 +66736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1493958779012619316, guid: b9de24523a11d714db3851b5f0f9d527, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.766006
+      value: -23.259
       objectReference: {fileID: 0}
     - target: {fileID: 1493958779012619316, guid: b9de24523a11d714db3851b5f0f9d527, type: 3}
       propertyPath: m_LocalPosition.y
@@ -66821,10 +66829,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.1
-  m_Height: 1
+  m_Radius: 0.07
+  m_Height: 0.8
   m_Direction: 0
-  m_Center: {x: 0.0017053336, y: 0.044984005, z: -0.0013525337}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2134864477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67389,7 +67397,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 57b9802931f444410ba0553cb6f2e000, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.25
   m_Pitch: 1.1
   Loop: 0
   Mute: 0

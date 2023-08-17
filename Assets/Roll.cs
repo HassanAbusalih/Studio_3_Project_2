@@ -36,6 +36,7 @@ public class Roll : MonoBehaviour
         if(collision.gameObject.tag == "Rock")
         {
             rb.constraints = RigidbodyConstraints.FreezeAll;
+            canHit = false;
         }
     }
 
