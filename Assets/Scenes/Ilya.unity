@@ -17594,7 +17594,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
-  m_Intensity: 0.1
+  m_Intensity: 0.4
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -27301,7 +27301,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685164107}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 76.421, y: 0.495, z: 30.5}
+  m_LocalPosition: {x: 76.421, y: 0.434, z: 30.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32520,7 +32520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
+  m_Color: {r: 0.4811321, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -32528,10 +32528,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: a07280cbbb2524feea5241c7f1fe3c72, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -33754,7 +33754,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
+  - {fileID: 487854877}
   - {fileID: 568269390}
+  - {fileID: 1041381366}
   timeForDetection: 5
   stealthIndicator: {fileID: 802113801}
   background: {fileID: 934610657}
@@ -33769,8 +33771,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 24.018097, y: 9.404564, z: 5.3950896}
-  m_Center: {x: 9.2580185, y: 4.202282, z: -2.1975443}
+  m_Size: {x: 24.018097, y: 9.404564, z: 3.680369}
+  m_Center: {x: 9.2580185, y: 4.202282, z: -1.340184}
 --- !u!4 &849805573
 Transform:
   m_ObjectHideFlags: 0
@@ -46480,7 +46482,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   depthIncrease: -4
-  heightIncrease: 1
+  heightIncrease: 0
 --- !u!1001 &1130532016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83367,6 +83369,9 @@ MonoBehaviour:
   player: {fileID: 1921055275}
   horizontal: 0
   pressed: 0
+  audioPlayed: 0
+  playerJump: {fileID: 0}
+  playerWalkSFX: {fileID: 0}
 --- !u!114 &1921055275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89404,7 +89409,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 487854877}
-  timeForDetection: 3
+  - {fileID: 568269390}
+  - {fileID: 1041381366}
+  timeForDetection: 2
   stealthIndicator: {fileID: 802113801}
   background: {fileID: 934610657}
 --- !u!65 &2050692614
