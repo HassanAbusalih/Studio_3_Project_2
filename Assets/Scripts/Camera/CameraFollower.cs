@@ -33,6 +33,14 @@ public class CameraFollower : Resettable
        zOffsetIncrease = zOffsetIncrease + increase;
     }
 
+    public void ZoomUp(float increase)
+    {
+        yOffsetIncrease = yOffsetIncrease + increase;
+    }
+    public void ZoomDown(float increase)
+    {
+        yOffsetIncrease = yOffsetIncrease - increase;
+    }
     public void ZoomIn(float decrease)
     {
         zOffsetIncrease = zOffsetIncrease - decrease;
