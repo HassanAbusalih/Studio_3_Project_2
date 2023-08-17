@@ -8,6 +8,7 @@ public class CameraFollower : Resettable
     [SerializeField] float followSpeed = 5f;
     [SerializeField] float zOffsetIncrease;
     [SerializeField] float yOffsetIncrease;
+    [SerializeField] bool zoom;
     float originalZOffset;
     Vector3 startRotation;
 
@@ -24,26 +25,42 @@ public class CameraFollower : Resettable
         Vector3 desiredRotation = playerTransform.position + offset;
         Quaternion targetRotation = Quaternion.LookRotation(playerTransform.position - transform.position);
         Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y + yOffsetIncrease, playerTransform.position.z + zOffsetIncrease);
-        transform.position = Vector3.Lerp(transform.position, desiredPosition, followSpeed * Time.deltaTime);
+        if (zoom == true)
+        {
+            transform.position = Vector3.Lerp(transform.position, desiredPosition, followSpeed * Time.deltaTime);
+            zoom = false;
+            Debug.Log("in");
+        }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.position, desiredRotation, followSpeed * Time.deltaTime);
+        }
+
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, followSpeed * Time.deltaTime);
+        
     }
 
     public void ZoomOut(float increase)
     {
-       zOffsetIncrease = zOffsetIncrease + increase;
+        Debug.Log(increase);
+        zOffsetIncrease = zOffsetIncrease + increase;
+        zoom = true;
     }
 
     public void ZoomUp(float increase)
     {
         yOffsetIncrease = yOffsetIncrease + increase;
+        zoom = true;
     }
     public void ZoomDown(float increase)
     {
         yOffsetIncrease = yOffsetIncrease - increase;
+        zoom = true;
     }
     public void ZoomIn(float decrease)
     {
         zOffsetIncrease = zOffsetIncrease - decrease;
+        zoom = true;
     }
 
     public override void ResetObject()
