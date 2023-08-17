@@ -6,6 +6,7 @@ public class Roll : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] bool canHit;
+    [SerializeField] float speed;
     //public float speed;
 
     void Start()
@@ -29,7 +30,7 @@ public class Roll : MonoBehaviour
         {
             //rb.constraints = RigidbodyConstraints.None;
             //rb.constraints = RigidbodyConstraints.FreezeRotation;
-            rb.AddTorque(transform.right);
+            rb.AddTorque(transform.right * speed);
         }
 
         if(collision.gameObject.tag == "Rock")

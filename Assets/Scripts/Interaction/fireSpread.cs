@@ -10,6 +10,7 @@ public class fireSpread : MonoBehaviour
     [SerializeField] ParticleSystem fire4;
     [SerializeField] ParticleSystem fire5;
     [SerializeField] ParticleSystem fire6;
+    [SerializeField] float timer = 5f;
     
 
     //[SerializeField] ParticleSystem[] particles;
@@ -25,17 +26,25 @@ public class fireSpread : MonoBehaviour
         
     }
 
+    void Update()
+    {
+        timer -= Time.deltaTime;
+    }
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player" || other.gameObject.tag == "Branch")
         {
-            fire.Play();
-            fire2.Play();
-            fire3.Play();
-            fire4.Play();
-            fire5.Play();
-            fire6.Play();
+            if(timer <= 0f)
+            {
+                fire.Play();
+                fire2.Play();
+                fire3.Play();
+                fire4.Play();
+                fire5.Play();
+                fire6.Play();
+            }
+            
             
         }
     }
