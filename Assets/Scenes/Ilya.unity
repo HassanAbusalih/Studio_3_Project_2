@@ -69696,6 +69696,8 @@ MonoBehaviour:
   singleInteraction: 1
   rotationAngle: -90
   rotationTime: 0.5
+  targetPosition: {x: 110, y: 0, z: -3}
+  xIfFalseZIfTrue: 0
 --- !u!65 &1550467159
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -76981,6 +76983,8 @@ MonoBehaviour:
   singleInteraction: 1
   rotationAngle: -90
   rotationTime: 0.5
+  targetPosition: {x: 110, y: 0, z: 31.5}
+  xIfFalseZIfTrue: 1
 --- !u!65 &1669741172
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -87409,6 +87413,10 @@ MonoBehaviour:
   audioPlayed: 0
   playerJump: {fileID: 0}
   playerWalkSFX: {fileID: 0}
+  canJump: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1921055275
 MonoBehaviour:
   m_ObjectHideFlags: 0
