@@ -21,8 +21,16 @@ public class PlayerMovement : Resettable
 
     private void Update()
     {
+        float moveHorizontal = 0f;
         if (!allowInput) {return;}
-        float moveHorizontal = Input.GetAxis("Horizontal");
+        if (Input.GetKey(KeyCode.D))
+        {
+            moveHorizontal = 1f;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            moveHorizontal = -1f;
+        }
         Vector3 moveDirection = new Vector3(moveHorizontal, 0f, 0f).normalized;
         Quaternion targetRotation = Quaternion.Euler(transform.rotation.eulerAngles - startRotation);
         moveDirection = targetRotation * moveDirection;
