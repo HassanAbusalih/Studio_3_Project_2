@@ -59,7 +59,7 @@ public class StealthManager : MonoBehaviour
             {
                 currentTime = 0;
             }
-            if (stealthIndicator.enabled)
+            if (stealthIndicator.enabled && inArea)
             {
                 stealthIndicator.fillAmount = currentTime / timeForDetection;
             }
