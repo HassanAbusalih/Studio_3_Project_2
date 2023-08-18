@@ -11,6 +11,7 @@ public class PlayerMovement : Resettable
     [SerializeField] KeyCode jump;
     [SerializeField] bool canJump;
     Vector3 startRotation;
+    bool allowInput = true;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class PlayerMovement : Resettable
 
     private void Update()
     {
+        if (!allowInput) {return;}
         float moveHorizontal = Input.GetAxis("Horizontal");
         Vector3 moveDirection = new Vector3(moveHorizontal, 0f, 0f).normalized;
         Quaternion targetRotation = Quaternion.Euler(transform.rotation.eulerAngles - startRotation);
@@ -29,6 +31,11 @@ public class PlayerMovement : Resettable
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+    }
+
+    public void ToggleInput()
+    {
+        allowInput = !allowInput;
     }
 
     private void OnTriggerEnter(Collider other)
