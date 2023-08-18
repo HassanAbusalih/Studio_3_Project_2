@@ -13,6 +13,7 @@ public class SkyboxChange : MonoBehaviour
     private Color targetColor;
     private float colorChangeStartTime;
 
+
     private void Start()
     {
         initialColor = Sun.color;
@@ -31,6 +32,7 @@ public class SkyboxChange : MonoBehaviour
 
             Sun.color = lerpedColor;
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -41,4 +43,12 @@ public class SkyboxChange : MonoBehaviour
             colorChanged = true;
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(0, 0, 0.5f, 0.2f);
+        BoxCollider collider = GetComponent<BoxCollider>();
+        Gizmos.DrawCube(transform.position, collider.size);
+    }
+
 }

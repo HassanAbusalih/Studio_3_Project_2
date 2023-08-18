@@ -11,7 +11,7 @@ public class Roll : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.constraints = RigidbodyConstraints.FreezeAll;
+       // rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     private void OnCollisionEnter(Collision collision)
