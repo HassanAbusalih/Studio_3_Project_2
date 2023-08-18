@@ -7,6 +7,7 @@ public class SkyboxChange : MonoBehaviour
     public Color newColor = Color.red; 
     public float colorChangeDuration; 
     public Light Sun;
+    bool colorChanged;
 
     private Color initialColor;
     private Color targetColor;
@@ -20,17 +21,24 @@ public class SkyboxChange : MonoBehaviour
 
     private void Update()
     {
-        float elapsed = Time.time - colorChangeStartTime;
+        if (colorChanged && Sun.color != targetColor) 
+        {
+            float elapsed = Time.time - colorChangeStartTime;
 
-        float t = Mathf.Clamp01(elapsed / colorChangeDuration);
+            float t = Mathf.Clamp01(elapsed / colorChangeDuration);
 
-        Color lerpedColor = Color.Lerp(initialColor, targetColor, t);
+            Color lerpedColor = Color.Lerp(initialColor, targetColor, t);
 
-        Sun.color = lerpedColor;
+            Sun.color = lerpedColor;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        colorChangeStartTime = Time.time;
+        if(!colorChanged)
+        {
+            colorChangeStartTime = Time.time;
+            colorChanged = true;
+        }
     }
 }

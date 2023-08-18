@@ -704,7 +704,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 250.00009, y: -474}
-  m_SizeDelta: {x: 350, y: 1050}
+  m_SizeDelta: {x: 400, y: 1050}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1113485432
 MonoBehaviour:
@@ -739,51 +739,51 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Armaan Takyar
+  m_Text: 'ARMAAN TAKYAR
 
-    Hassan Abusalih
-
-
-
-    Armaan Ahmed Shaikh
-
-    Prieance
-    Sagar
-
-    Ilya Ternov
-
-    Mohammad Ghassan Khudari
+    HASSAN ABUSALIH
 
 
 
-    Armaan Ahmed Shaikh
+    ARMAAN AHMED SHAIKH
+
+    PRIEANCE
+    SAGAR
+
+    ILYA TERNOV
+
+    MOHAMMAD GHASSAN KHUDARI (SASA)
 
 
 
-    Prieance
-    Sagar
+    ARMAAN AHMED
+    SHAIKH
 
 
 
-    Unity Asset Store
-
-    Itch.io Game Assets
+    PRIEANCE SAGAR
 
 
 
+    UNITY ASSETS STORE
 
-    Anna Tookey
-
-    Mustafa
-    Sibai
+    ITCH.IO GAME ASSETS
 
 
 
-    (Audio) Nicolas
+
+    ANNA
+    TOOKEY
+
+    MUSTAFA SIBAI
 
 
 
-    Ahmad Abobakr Abdallah'
+    (Audio) NICOLAS
+
+
+
+    AHMAD ABOBAKR ABDALLAH'
 --- !u!222 &1113485433
 CanvasRenderer:
   m_ObjectHideFlags: 0

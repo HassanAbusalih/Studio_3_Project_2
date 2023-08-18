@@ -7,7 +7,7 @@ public class Buttons : MonoBehaviour
 {
     [SerializeField] string nextscene;
     public float duration;
-   
+    
     
 
     public void GameScene()
