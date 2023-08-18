@@ -10,6 +10,10 @@ public class fireSpread : MonoBehaviour
     [SerializeField] ParticleSystem fire4;
     [SerializeField] ParticleSystem fire5;
     [SerializeField] ParticleSystem fire6;
+    [SerializeField] ParticleSystem fire7;
+    [SerializeField] ParticleSystem fire8;
+    [SerializeField] GameObject finalFire;
+    //[SerializeField] ParticleSystem fire9;
     [SerializeField] float timer = 5f;
    // [SerializeField] bool isBurnt;
     //[SerializeField] Rigidbody treerb;
@@ -25,6 +29,9 @@ public class fireSpread : MonoBehaviour
         fire4.Pause();
         fire5.Pause();
         fire6.Pause();
+        fire7.Pause();
+        fire8.Pause();
+        finalFire.SetActive(false);
         //isBurnt = false;
     }
 
@@ -45,7 +52,12 @@ public class fireSpread : MonoBehaviour
                 fire4.Play();
                 fire5.Play();
                 fire6.Play();
+                fire7.Play();
+                fire8.Play();
+                finalFire.SetActive(true);
+                //fire9.Play();
                 //isBurnt = true;
+
             }
             
             /*if(isBurnt == true)
