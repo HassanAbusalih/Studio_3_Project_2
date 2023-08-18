@@ -8,6 +8,7 @@ public class ChaseManager : Resettable
     [SerializeField] float fireActivationInterval = 0.5f;
     [SerializeField] float height = 1;
     [SerializeField] Transform endPoint;
+    [SerializeField] float fireParticles = 100;
     [SerializeField] FireController[] fires;
     BoxCollider chaseCollider;
     BoxCollider endCollider;
@@ -50,7 +51,7 @@ public class ChaseManager : Resettable
         yield return new WaitForSeconds(fireActivationDelay);
         for (int i = 0; i < fires.Length; i++)
         {
-            StartCoroutine(fires[i].MoveFire(i * fireActivationInterval, height, fireActivationInterval));
+            StartCoroutine(fires[i].MoveFire(i * fireActivationInterval, height, fireActivationInterval, fireParticles));
         }
         resetter.enabled = true;
         float totalTime = fires.Length * fireActivationInterval;

@@ -6,19 +6,32 @@ public class FireController : Resettable, IComparable
 {
     public float distanceFromStart { get; private set; }
     Vector3 startPos;
+    ParticleSystem particleSystem;
+    ParticleSystem.EmissionModule emissionModule;
 
     void Start()
     {
         startPos = transform.position;
+        particleSystem = GetComponent<ParticleSystem>();
+        if (particleSystem != null)
+        {
+            emissionModule = particleSystem.emission;
+            emissionModule.rateOverTime = 0;
+        }
     }
 
-    public IEnumerator MoveFire(float delay, float height, float timeToMove)
+    public IEnumerator MoveFire(float delay, float height, float timeToMove, float particles)
     {
         yield return new WaitForSeconds(delay);
         float time = 0;
         Vector3 targetPos = new Vector3(startPos.x, startPos.y + height, startPos.z);
         while (time < timeToMove)
         {
+            float rate = particles * (time / timeToMove);
+            if (particleSystem != null)
+            {
+                emissionModule.rateOverTime = rate;
+            }
             transform.position = Vector3.Lerp(startPos, targetPos, time/timeToMove);
             time += Time.deltaTime;
             yield return null;

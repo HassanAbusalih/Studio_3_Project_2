@@ -7,7 +7,6 @@ public class Roll : MonoBehaviour
     Rigidbody rb;
     [SerializeField] bool canHit;
     [SerializeField] float speed;
-    //public float speed;
 
     void Start()
     {
@@ -15,21 +14,11 @@ public class Roll : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
-    void Update()
-    {
-        /*if(Input.GetKeyDown(KeyCode.Space))
-        {
-            //rb.AddForce(transform.forward, ForceMode.Impulse);
-            rb.AddTorque(transform.right);
-        }*/
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player" && canHit)
         {
-            rb.constraints = RigidbodyConstraints.None;
-            //rb.constraints = RigidbodyConstraints.FreezeRotation;
+            rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
             rb.AddTorque(transform.right * speed);
         }
 

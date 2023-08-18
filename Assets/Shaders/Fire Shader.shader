@@ -4,6 +4,7 @@ Shader "Custom/Fire Shader"
     {
         _MainTex ("Fire Shape", 2D) = "white" {}
         _NoiseTex ("Noise Texture", 2D) = "white" {}
+        _NoiseTex2 ("Noise Texture 2", 2D) = "white" {}
         _Speed ("Speed", Float) = 1.0
         _NoiseTiling ("Noise Tiling", Float) = 1.0
         _Intensity ("Intensity", Float) = 1.0
@@ -39,6 +40,7 @@ Shader "Custom/Fire Shader"
             sampler2D _MainTex;
             float4 _MainTex_ST;
             sampler2D _NoiseTex;
+            sampler2D _NoiseTex2;
             float _Speed;
             float _NoiseTiling;
             fixed4 _Color1;
@@ -56,9 +58,10 @@ Shader "Custom/Fire Shader"
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
-                fixed4 noise = tex2D(_NoiseTex, i.uv * _NoiseTiling + float2(0, _Time.y * -_Speed));
+                fixed4 noise = tex2D(_NoiseTex, i.uv + float2(0, _Time.y * -_Speed));
+                fixed4 noise2 = tex2D(_NoiseTex2, i.uv * _NoiseTiling + float2(0, _Time.y * -_Speed));
                 fixed4 lerpedColor = lerp(_Color1, _Color2, col.r);
-                col *= noise * lerpedColor * _Intensity;
+                col *= noise * noise2 * lerpedColor * _Intensity;
                 return col;
             }
             ENDCG
