@@ -38,7 +38,7 @@ public class DangerIndicator : MonoBehaviour
     {
         if (other.gameObject == player.gameObject)
         {
-            inArea = true;
+            inArea = false;
             vignette.intensity.value = 0;
         }
     }
