@@ -23,6 +23,7 @@ public class fireSpread : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        finalFire.SetActive(false);
         fire.Pause();
         fire2.Pause();
         fire3.Pause();
@@ -31,7 +32,6 @@ public class fireSpread : MonoBehaviour
         fire6.Pause();
         fire7.Pause();
         fire8.Pause();
-        finalFire.SetActive(false);
         //isBurnt = false;
     }
 
