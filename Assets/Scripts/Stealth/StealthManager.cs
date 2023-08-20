@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Net;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,7 +33,7 @@ public class StealthManager : MonoBehaviour
         Gizmos.DrawCube(transform.position, chaseCollider.size);
     }
 
-        void Update()
+    void Update()
     {
         if (inArea && CheckForPlayer())
         {

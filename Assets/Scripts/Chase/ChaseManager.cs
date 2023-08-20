@@ -19,8 +19,6 @@ public class ChaseManager : Resettable
     private void OnDrawGizmos()
     {
         Gizmos.color = new Color(0, 0, 0.5f, 0.2f);
-        BoxCollider chaseCollider = GetComponent<BoxCollider>();
-        BoxCollider endCollider = endPoint.GetComponent<BoxCollider>();
         Gizmos.DrawCube(transform.position, chaseCollider.size);
         if (endCollider != null)
         {
@@ -34,7 +32,7 @@ public class ChaseManager : Resettable
 
     void Start()
     {
-        chaseCollider = GetComponent<BoxCollider>();
+        TryGetComponent<BoxCollider>(out chaseCollider);
         endPoint.TryGetComponent<BoxCollider>(out endCollider);
         resetter = gameObject.AddComponent<ResetTrigger>();
         resetter.enabled = false;

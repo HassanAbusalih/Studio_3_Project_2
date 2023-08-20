@@ -6,16 +6,16 @@ public class FireController : Resettable, IComparable
 {
     public float distanceFromStart { get; private set; }
     Vector3 startPos;
-    ParticleSystem particleSystem;
+    ParticleSystem particleSys;
     ParticleSystem.EmissionModule emissionModule;
 
     void Start()
     {
         startPos = transform.position;
-        particleSystem = GetComponent<ParticleSystem>();
-        if (particleSystem != null)
+        particleSys = GetComponent<ParticleSystem>();
+        if (particleSys != null)
         {
-            emissionModule = particleSystem.emission;
+            emissionModule = particleSys.emission;
             emissionModule.rateOverTime = 0;
         }
     }
@@ -28,7 +28,7 @@ public class FireController : Resettable, IComparable
         while (time < timeToMove)
         {
             float rate = particles * (time / timeToMove);
-            if (particleSystem != null)
+            if (particleSys != null)
             {
                 emissionModule.rateOverTime = rate;
             }
@@ -62,6 +62,10 @@ public class FireController : Resettable, IComparable
     {
         StopAllCoroutines();
         transform.position = startPos;
+        if (particleSys != null)
+        {
+            emissionModule.rateOverTime = 0;
+        }
     }
 }
 

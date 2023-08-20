@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIpopup : MonoBehaviour
@@ -8,7 +6,7 @@ public class UIpopup : MonoBehaviour
     [SerializeField] Animator UIpopping;
     [SerializeField] GameObject bubble;
     [SerializeField] bool didInteract;
-    // Start is called before the first frame update
+
     private void Start()
     {
         bubble.SetActive(false);
