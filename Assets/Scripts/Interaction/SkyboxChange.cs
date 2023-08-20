@@ -7,6 +7,7 @@ public class SkyboxChange : MonoBehaviour
     public Color newColor = Color.red; 
     public float colorChangeDuration; 
     public Light Sun;
+    [SerializeField] AudioSource fireSFX;
     bool colorChanged;
 
     private Color initialColor;
@@ -41,6 +42,7 @@ public class SkyboxChange : MonoBehaviour
         {
             colorChangeStartTime = Time.time;
             colorChanged = true;
+            fireSFX.Play();
         }
     }
 
