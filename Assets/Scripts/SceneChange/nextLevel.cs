@@ -2,21 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class nextLevel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] string nextLevelName;
+    [SerializeField] RawImage fadeImage;
+    [SerializeField] float fadeDuration = 1.0f;
 
-    // Update is called once per frame
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("Armaan 2.0");
+            
+            StartCoroutine(FadeIn());
         }
+    }
+    IEnumerator FadeIn()
+    {
+        float elapsedTime = 0.0f;
+        Color initialColor = fadeImage.color;
+
+        while (elapsedTime < fadeDuration)
+        {
+            float normalizedTime = elapsedTime / fadeDuration;
+            fadeImage.color = Color.Lerp(initialColor, Color.black, normalizedTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        fadeImage.color = Color.black;
+        SceneManager.LoadScene(nextLevelName);
+    }
+    public void  nextLevelScene()
+    {
+        SceneManager.LoadScene(nextLevelName);
     }
 }
