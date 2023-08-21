@@ -6,6 +6,8 @@ public class treeFall : MonoBehaviour
 {
     [SerializeField] Animator fallingDown;
     [SerializeField] GameObject fireClear;
+    [SerializeField] float delay;
+    [SerializeField] ResetTrigger reset;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +21,13 @@ public class treeFall : MonoBehaviour
         if(other.gameObject.tag == "Fire")
         {
             fallingDown.SetBool("caughtFire", true);
-            //fireClear.SetActive(false);
+            Invoke("DisableFire", delay);
         }
     }
 
-    void Update()
+    void DisableFire()
     {
-       
+        fireClear.SetActive(false);
+        Destroy(reset);
     }
 }
