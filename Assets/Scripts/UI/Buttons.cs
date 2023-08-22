@@ -7,13 +7,9 @@ public class Buttons : MonoBehaviour
     [SerializeField] string nextscene;
     public float duration;
     
-    
-
     public void GameScene()
     {
         StartCoroutine("Starting");
-        //SceneManager.LoadScene("Main");
-        //Time.timeScale = 1;
     }
     IEnumerator Starting()
     {
@@ -30,7 +26,6 @@ public class Buttons : MonoBehaviour
     public void Quit()
     {
         StartCoroutine("Quiting");
-        //Application.Quit();
     }
     IEnumerator Quiting()
     {

@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class pauseMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] GameObject pausePopUp;
-    [SerializeField] AudioSource bgSound;
+    //[SerializeField] AudioSource bgSound;
     public float duration;
     public string nextscene;
 
@@ -21,14 +20,12 @@ public class pauseMenu : MonoBehaviour
         {
             Time.timeScale = 0f;
             pausePopUp.SetActive(true);
-            bgSound.volume = 0f;
+            //bgSound.volume = 0f;
         }
     }
     public void Close()
     {
         StartCoroutine(Closing());
-        //pauseMenuPanel.SetActive(false);
-        //Time.timeScale = 1;
     }
     IEnumerator Closing()
     {
@@ -45,8 +42,6 @@ public class pauseMenu : MonoBehaviour
     public void MainMenu()
     {
         StartCoroutine("MainMenuScene");
-        //Time.timeScale = 1;
-        //SceneManager.LoadScene("Main Menu");
     }
     IEnumerator MainMenuScene()
     {
@@ -63,7 +58,6 @@ public class pauseMenu : MonoBehaviour
     public void Quit()
     {
         StartCoroutine("Quiting");
-        //Application.Quit();
     }
     IEnumerator Quiting()
     {
@@ -75,5 +69,4 @@ public class pauseMenu : MonoBehaviour
         }
         Application.Quit();
     }
-    // Update is called once per frame
 }
