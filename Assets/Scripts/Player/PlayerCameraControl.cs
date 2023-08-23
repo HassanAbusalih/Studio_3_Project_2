@@ -8,14 +8,14 @@ public class PlayerCameraControl : MonoBehaviour
     [SerializeField] LayerMask triggerLayer;
     [SerializeField] float depthIncrease;
     [SerializeField] float heightIncrease;
+    [SerializeField] float positionIncrease;
     bool entered;
 
     private void OnTriggerEnter(Collider other)
     {
         if (triggerLayer == (triggerLayer | (1 << other.gameObject.layer)) && entered == false)
         {
-            cameraZoom.ZoomOut(depthIncrease);
-            cameraZoom.ZoomUp(heightIncrease);
+            cameraZoom.ZoomOut(depthIncrease,heightIncrease,positionIncrease);
             entered = true;
         }
     }
@@ -24,8 +24,7 @@ public class PlayerCameraControl : MonoBehaviour
     {
         if (triggerLayer == (triggerLayer | (1 << other.gameObject.layer)) && entered == true)
         {
-            cameraZoom.ZoomIn(depthIncrease);
-            cameraZoom.ZoomDown(heightIncrease);
+            cameraZoom.ZoomIn(depthIncrease, heightIncrease, positionIncrease);
             entered = false;
         }
     }

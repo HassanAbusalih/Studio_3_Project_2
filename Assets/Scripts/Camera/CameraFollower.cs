@@ -6,6 +6,7 @@ public class CameraFollower : Resettable
     [SerializeField] float followSpeed = 5f;
     [SerializeField] float zOffsetIncrease;
     [SerializeField] float yOffsetIncrease;
+    [SerializeField] float xOffsetIncrease;
     [SerializeField] bool zoom;
     float originalZOffset;
     Vector3 startRotation;
@@ -18,32 +19,28 @@ public class CameraFollower : Resettable
 
     void FixedUpdate()
     {
-        Vector3 offset = new Vector3(0, yOffsetIncrease, originalZOffset + zOffsetIncrease);
+        Vector3 offset = new Vector3(xOffsetIncrease, yOffsetIncrease, originalZOffset + zOffsetIncrease);
         offset = Quaternion.Euler(playerTransform.rotation.eulerAngles - startRotation) * offset;
         Vector3 desiredRotation = playerTransform.position + offset;
         Quaternion targetRotation = Quaternion.LookRotation(playerTransform.position - transform.position);
-        Vector3 desiredPosition = new Vector3(playerTransform.position.x, playerTransform.position.y + yOffsetIncrease, playerTransform.position.z + zOffsetIncrease);
         transform.position = Vector3.Lerp(transform.position, desiredRotation, followSpeed * Time.deltaTime);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, followSpeed * Time.deltaTime);
         
     }
 
-    public void ZoomOut(float increase)
+    public void ZoomOut(float zIncrease, float yIncrease, float xIncrease)
     {
-        zOffsetIncrease = zOffsetIncrease + increase;
+        zOffsetIncrease = zOffsetIncrease + zIncrease;
+        yOffsetIncrease = yOffsetIncrease + yIncrease;
+        xOffsetIncrease = xOffsetIncrease + xIncrease;
     }
 
-    public void ZoomUp(float increase)
+    public void ZoomIn(float zDecrease, float yDecrease , float xDecrease)
     {
-        yOffsetIncrease = yOffsetIncrease + increase;
-    }
-    public void ZoomDown(float increase)
-    {
-        yOffsetIncrease = yOffsetIncrease - increase;
-    }
-    public void ZoomIn(float decrease)
-    {
-        zOffsetIncrease = zOffsetIncrease - decrease;
+        zOffsetIncrease = zOffsetIncrease - zDecrease;
+        yOffsetIncrease = yOffsetIncrease - yDecrease;
+        xOffsetIncrease = xOffsetIncrease - xDecrease;
+
     }
 
     public override void ResetObject()
