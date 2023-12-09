@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a9d1e1d7e559d4ebf389ffd151165f, type: 3}
+  m_Name: Test Dialogue
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: Test 1
+    text: Hey hi
+  - speaker: Test 2
+    text: Hello hi
+  - speaker: Test 5438590
+    text: God is dead. God remains dead. And we have killed him. How shall we comfort
+      ourselves, the murderers of all murderers?
+  - speaker: Test 4
+    text: Heehoo
