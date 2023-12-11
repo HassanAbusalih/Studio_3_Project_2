@@ -8,8 +8,10 @@ public class PlayerMovement : Resettable
     [SerializeField] Rigidbody rb;
     [SerializeField] KeyCode jump;
     [SerializeField] bool canJump;
+    [SerializeField] bool rotated;
     Vector3 startRotation;
     bool allowInput = true;
+   
 
     private void Awake()
     {
@@ -17,6 +19,7 @@ public class PlayerMovement : Resettable
         rb = GetComponent<Rigidbody>();
     }
 
+    
     private void Update()
     {
         float moveHorizontal = 0f;
@@ -30,6 +33,10 @@ public class PlayerMovement : Resettable
             moveHorizontal = -1f;
         }
         Vector3 moveDirection = new Vector3(moveHorizontal, 0f, 0f).normalized;
+        if(rotated)
+        {
+            moveDirection = -moveDirection;
+        }
         Quaternion targetRotation = Quaternion.Euler(transform.rotation.eulerAngles - startRotation);
         moveDirection = targetRotation * moveDirection;
         rb.velocity = new Vector3(moveDirection.x * moveSpeed, rb.velocity.y, moveDirection.z * moveSpeed);

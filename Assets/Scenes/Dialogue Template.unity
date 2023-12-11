@@ -392,7 +392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1018470003750231551, guid: 00e7b635e4f307c49ae2a126a4eda4b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.909962
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 1018470003750231551, guid: 00e7b635e4f307c49ae2a126a4eda4b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -400,7 +400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1018470003750231551, guid: 00e7b635e4f307c49ae2a126a4eda4b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.540592
+      value: -33
       objectReference: {fileID: 0}
     - target: {fileID: 1018470003750231551, guid: 00e7b635e4f307c49ae2a126a4eda4b7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -707,6 +707,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 990326676791992142, guid: 514dc246da33f4e4b83ab5e376af09a8, type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: d98c509adeac8d64d94adc7eb15e8f42, type: 2}
     - target: {fileID: 990326678452633065, guid: 514dc246da33f4e4b83ab5e376af09a8, type: 3}
       propertyPath: m_Camera
       value: 
