@@ -8,6 +8,7 @@ TagManager:
   - Branch
   - Rock
   - Fire
+  - Hostile
   layers:
   - Default
   - TransparentFX

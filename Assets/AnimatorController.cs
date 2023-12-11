@@ -21,12 +21,12 @@ public class AnimatorController : MonoBehaviour
     }
     void Update()
     {
-        if (PlayerInRange())
+        if (PlayerInRange() && !gameObject.CompareTag("Hostile"))
         {
-            Debug.Log("asas");
+            
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("asas");
+                
                 animator.SetBool("throwFood", true);
                 throwingFood = animator.GetBool("throwFood");
             }
