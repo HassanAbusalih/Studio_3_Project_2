@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a9d1e1d7e559d4ebf389ffd151165f, type: 3}
+  m_Name: Hostile Bench
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: Ruth
+    text: Don't be fooled by that cat's cute looks
+  - speaker: Ruth
+    text: My mom taught me to never feed them
+  - speaker: Ruth
+    text: It forms a bad habit and they will start to rely on us
+  - speaker: Remy
+    text: Let them eat out of the garbage, there's plenty of that haha!

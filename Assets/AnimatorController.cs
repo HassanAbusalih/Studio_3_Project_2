@@ -24,7 +24,7 @@ public class AnimatorController : MonoBehaviour
         if (PlayerInRange() && !gameObject.CompareTag("Hostile"))
         {
             
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 
                 animator.SetBool("throwFood", true);

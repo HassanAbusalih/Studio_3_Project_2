@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a9d1e1d7e559d4ebf389ffd151165f, type: 3}
+  m_Name: Friendly Bench 2
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: Alex
+    text: It's a shame how little they care about these cats
+  - speaker: Alex
+    text: Their homes were destroyed and they get treated so poorly
+  - speaker: Alex
+    text: They used to be so fat from how much we fed them 20 years ago haha!
+  - speaker: Alex
+    text: All you gotta do is ask, kitty!
+  - speaker: 
+    text: Press "F" to meow for food
