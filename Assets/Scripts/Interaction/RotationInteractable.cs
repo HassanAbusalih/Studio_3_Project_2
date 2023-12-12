@@ -1,12 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Serialization;
 
 public class RotationInteractable : Interactable
 {
     [SerializeField] float rotationAngle = 30;
     [SerializeField] float rotationTime = 0.5f;
-    [SerializeField] Vector3 targetPosition;
-    [SerializeField] bool xIfFalseZIfTrue;
+    [SerializeField][FormerlySerializedAs("xIfFalseZIfTrue")] bool lockXIfFalseZIfTrue;
+    Vector3 targetPosition;
     PlayerMovement player;
     Rigidbody rb;
     
@@ -14,6 +15,7 @@ public class RotationInteractable : Interactable
     {
         player = FindObjectOfType<PlayerMovement>();
         rb = player.GetComponent<Rigidbody>();
+        targetPosition = transform.position;
     }
 
     protected override void Interact()
@@ -36,7 +38,7 @@ public class RotationInteractable : Interactable
             time += Time.deltaTime;
             yield return null;
         }
-        if (xIfFalseZIfTrue)
+        if (lockXIfFalseZIfTrue)
         {
             rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
         }

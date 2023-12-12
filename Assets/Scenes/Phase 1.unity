@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08039181, g: 0.09978489, b: 0.30118412, a: 1}
+  m_IndirectSpecularColor: {r: 0.080500886, g: 0.09989967, b: 0.30131203, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2075,7 +2075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1010780384915087953, guid: 0f38fca82bcdf9d4990d1eb429f8d0c7, type: 3}
       propertyPath: xIfFalseZIfTrue
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1010780384915087953, guid: 0f38fca82bcdf9d4990d1eb429f8d0c7, type: 3}
       propertyPath: targetPosition.x
@@ -2083,7 +2083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1010780384915087953, guid: 0f38fca82bcdf9d4990d1eb429f8d0c7, type: 3}
       propertyPath: targetPosition.z
-      value: 31
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1010780384915087954, guid: 0f38fca82bcdf9d4990d1eb429f8d0c7, type: 3}
       propertyPath: m_Icon
@@ -13534,6 +13534,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08b183661f0269409a7f14be6a93d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &563510818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563510806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f6f2950ef5fc54e9e5c111af1650cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionButton: 101
 --- !u!4 &566240062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 485062, guid: 260ea4bf1ba71314c9c3833b491586bc, type: 3}
