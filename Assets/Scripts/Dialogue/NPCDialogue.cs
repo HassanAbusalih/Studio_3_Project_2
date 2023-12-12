@@ -30,16 +30,16 @@ public class NPCDialogue : MonoBehaviour
     {
         TextMeshProUGUI text = keyPressPanel.GetComponentInChildren<TextMeshProUGUI>();
         imagePanelInfo = new ImagePanelInfo(keyPressPanel.color.a, text, text.color.a);
+        playerDialogue = FindObjectOfType<PlayerDialogue>();
     }
 
     void Update()
     {
-        if (playerDialogue == null)
+        if (dialogueState == DialogueState.NotInRange)
         {
             dialogueUI.SetActive(false);
             dialogueTextQueue.Clear();
             dialogueSpeakerQueue.Clear();
-            dialogueState = DialogueState.NotInRange;
             return;
         }
         cd += Time.deltaTime;
@@ -187,7 +187,7 @@ public class NPCDialogue : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out playerDialogue))
+        if (other.gameObject.TryGetComponent(out PlayerDialogue _))
         {
             dialogueState = DialogueState.InRange;
             if (!keyPressPanel.gameObject.activeSelf)
@@ -201,11 +201,10 @@ public class NPCDialogue : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out playerDialogue))
+        if (other.gameObject.TryGetComponent(out PlayerDialogue _))
         {
             dialogueState = DialogueState.NotInRange;
             StartCoroutine(FadePanel(keyPressPanel, playerDialogue.KeyPanelFadeTime, false));
-            playerDialogue = null;
             Debug.Log("Player out of range");
         }
     }
