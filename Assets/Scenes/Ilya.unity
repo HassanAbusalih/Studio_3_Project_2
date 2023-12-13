@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.008625037, g: 0.008817622, b: 0.019593151, a: 1}
+  m_IndirectSpecularColor: {r: 0.008680698, g: 0.008848519, b: 0.01971401, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15137,8 +15137,9 @@ MonoBehaviour:
   triggerLayer:
     serializedVersion: 2
     m_Bits: 256
-  depthIncrease: -2
-  heightIncrease: 0
+  zChange: 0
+  yChange: 0
+  xChange: 0
 --- !u!1001 &365939186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22030,8 +22031,9 @@ MonoBehaviour:
   triggerLayer:
     serializedVersion: 2
     m_Bits: 256
-  depthIncrease: -2
-  heightIncrease: 0
+  zChange: 0
+  yChange: 0
+  xChange: 0
 --- !u!1001 &528161884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28996,6 +28998,7 @@ MonoBehaviour:
   followSpeed: 2
   zOffsetIncrease: 0
   yOffsetIncrease: 1
+  xOffsetIncrease: 0
   zoom: 0
 --- !u!65 &690751560
 BoxCollider:
@@ -49445,8 +49448,9 @@ MonoBehaviour:
   triggerLayer:
     serializedVersion: 2
     m_Bits: 256
-  depthIncrease: -2
-  heightIncrease: 0
+  zChange: 0
+  yChange: 0
+  xChange: 0
 --- !u!1001 &1130532016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70114,8 +70118,7 @@ MonoBehaviour:
   singleInteraction: 1
   rotationAngle: -90
   rotationTime: 0.5
-  targetPosition: {x: 110, y: 0, z: -3}
-  xIfFalseZIfTrue: 0
+  lockXIfFalseZIfTrue: 0
 --- !u!65 &1550467159
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -77423,8 +77426,7 @@ MonoBehaviour:
   singleInteraction: 1
   rotationAngle: -90
   rotationTime: 0.5
-  targetPosition: {x: 110, y: 0, z: 31.5}
-  xIfFalseZIfTrue: 1
+  lockXIfFalseZIfTrue: 1
 --- !u!65 &1669741172
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -87897,6 +87899,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   jump: 119
   canJump: 0
+  rotated: 0
 --- !u!95 &1921055276
 Animator:
   serializedVersion: 5

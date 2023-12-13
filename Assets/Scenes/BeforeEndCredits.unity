@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571337, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -265,7 +265,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Take care of our Planet
+  m_text: It is through such collective efforts that we can move towards a future
+    that transcends the shadows of colonialism, promoting justice, equality, and
+    unity on a global scale.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -575,7 +577,7 @@ GameObject:
   - component: {fileID: 244514941}
   - component: {fileID: 244514940}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Next Scene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -593,7 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d735c1fc60ca2994db9e87b760646a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelName: Credits
+  nextLevelName: MainMenu
   fadeImage: {fileID: 0}
   fadeDuration: 1
 --- !u!4 &244514941
@@ -669,7 +671,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 600 million STRAY DOGS and CATS live on the street worldwide
+  m_text: As we reflect on the legacy of colonialism, it is crucial to learn from
+    history, recognizing the injustices that occurred and their lasting effects on
+    marginalized communities.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -930,7 +934,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Humans are responsible for around 75% of all wildfires
+  m_text: The impact of colonialism on our world is profound and complex. It has
+    shaped the course of history, influencing cultures, economies, and geopolitical
+    structures.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
