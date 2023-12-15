@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54a9d1e1d7e559d4ebf389ffd151165f, type: 3}
-  m_Name: Friendly Bench 2
+  m_Name: Friendly Hotdog
   m_EditorClassIdentifier: 
   lines:
-  - speaker: Alex
-    text: It's a shame how little they care about these cats
-  - speaker: Alex
-    text: Their homes were destroyed and they get treated so poorly
-  - speaker: Alex
-    text: They used to be so fat from how much we fed them 20 years ago haha!
-  - speaker: Alex
-    text: All you gotta do is ask, kitty!
+  - speaker: Jaden
+    text: Yo bro, you see this cat? She's a greedy one!
+  - speaker: Jaden
+    text: I already gave her two sauasages today and she just keeps coming back.
+  - speaker: Jaden
+    text: Ok kitty, come back later this evening and I'll give you any leftovers.
+      Off you go.

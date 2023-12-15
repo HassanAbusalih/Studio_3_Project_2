@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54a9d1e1d7e559d4ebf389ffd151165f, type: 3}
-  m_Name: Friendly Bench 2
+  m_Name: Friendly Bench Phase 1
   m_EditorClassIdentifier: 
   lines:
-  - speaker: Alex
-    text: It's a shame how little they care about these cats
-  - speaker: Alex
-    text: Their homes were destroyed and they get treated so poorly
-  - speaker: Alex
-    text: They used to be so fat from how much we fed them 20 years ago haha!
-  - speaker: Alex
-    text: All you gotta do is ask, kitty!
+  - speaker: Trey
+    text: You see, this cat comes around here every morning and meows at me
+  - speaker: Trey
+    text: I eventually figured out that she just wants some treats
+  - speaker: Trey
+    text: Soon enough, I'll be able to hold conversations with them haha!
+  - speaker: Trey
+    text: Here you go kitty.
