@@ -100,7 +100,7 @@ public class NPCDialogue : MonoBehaviour
             dialogueTextQueue.Clear();
         }
         dialogueUI.SetActive(false);
-        keyPressPanel.gameObject.SetActive(true);
+        keyPressPanel.gameObject.SetActive(false);
         dialogueState = DialogueState.InRange;
         dialogueEnded?.Invoke();
     }
@@ -204,7 +204,10 @@ public class NPCDialogue : MonoBehaviour
         if (other.gameObject.TryGetComponent(out PlayerDialogue _))
         {
             dialogueState = DialogueState.NotInRange;
-            StartCoroutine(FadePanel(keyPressPanel, playerDialogue.KeyPanelFadeTime, false));
+            if (keyPressPanel.color.a > 0)
+            {
+                StartCoroutine(FadePanel(keyPressPanel, playerDialogue.KeyPanelFadeTime, false));
+            }
             Debug.Log("Player out of range");
         }
     }
